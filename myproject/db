@@ -1,106 +1,337 @@
-//NHÂN KHẨU – nhankhau_nhankhau
+-- 1. INSERT RESIDENTS (NHAN KHAU) - TOTAL: 50
+-- IDs 1-35: Japanese
+-- IDs 36-40: Vietnamese
+-- IDs 41-50: European
 
 INSERT INTO nhankhau_nhankhau
-(hoten, ngaysinh, gioitinh, dantoc, tongiao, cccd, ngaycap, noicap, nghenghiep, ghichu)
+(id, hoten, ngaysinh, gioitinh, dantoc, tongiao, cccd, ngaycap, noicap, nghenghiep, ghichu)
 VALUES
-('Nguyễn Văn An','1985-04-12','Nam','Kinh','Không','100000000001','2020-01-01','CA Hà Nội','Kỹ sư',NULL),
-('Trần Thị Hoa','1990-09-21','Nữ','Kinh','Không','100000000002','2021-03-01','CA Hà Nội','Giáo viên',NULL),
-('Phạm Minh Tuấn','2000-12-02','Nam','Kinh','Không','100000000003','2022-07-01','CA TP.HCM','Sinh viên',NULL),
-('Lê Thị Hương','1995-06-30','Nữ','Kinh','Phật giáo','100000000004','2019-11-01','CA Hà Nội','Nhân viên VP',NULL),
-('Hoàng Gia Bảo','2012-02-15','Nam','Kinh','Không','100000000005','2023-05-01','CA Hà Nội','Học sinh',NULL),
-('Nguyễn Thị Lan','1988-08-18','Nữ','Kinh','Không','100000000006','2018-04-01','CA Hải Phòng','Kế toán',NULL),
-('Đặng Quốc Việt','1979-01-10','Nam','Kinh','Không','100000000007','2017-02-01','CA Hà Nội','Kinh doanh',NULL),
-('Vũ Thị Mai','1992-03-25','Nữ','Kinh','Không','100000000008','2020-09-01','CA Nam Định','Y tá',NULL),
-('Bùi Văn Long','1965-11-11','Nam','Kinh','Không','100000000009','2016-06-01','CA Hà Nội','Hưu trí',NULL),
-('Phan Thị Ngọc','2003-07-19','Nữ','Kinh','Không','100000000010','2022-01-01','CA TP.HCM','Sinh viên',NULL);
+-- Japanese Group (35 people)
+(1, 'Tanaka Ken', '1980-04-12', 'Male', 'Japanese', 'None', 'JP10001', '2020-01-01', 'Tokyo', 'Engineer', NULL),
+(2, 'Tanaka Yumi', '1982-08-20', 'Female', 'Japanese', 'None', 'JP10002', '2020-01-01', 'Tokyo', 'Housewife', NULL),
+(3, 'Tanaka Hiro', '2010-05-05', 'Male', 'Japanese', 'None', 'JP10003', '2023-01-01', 'Tokyo', 'Student', NULL),
+(4, 'Suzuki Ichiro', '1975-11-15', 'Male', 'Japanese', 'None', 'JP10004', '2019-05-10', 'Osaka', 'Manager', NULL),
+(5, 'Suzuki Sakura', '1978-02-28', 'Female', 'Japanese', 'None', 'JP10005', '2019-06-15', 'Osaka', 'Teacher', NULL),
+(6, 'Sato Takashi', '1990-09-09', 'Male', 'Japanese', 'None', 'JP10006', '2021-03-20', 'Hokkaido', 'Chef', NULL),
+(7, 'Takahashi Emi', '1992-12-01', 'Female', 'Japanese', 'Buddhism', 'JP10007', '2021-04-01', 'Kyoto', 'Nurse', NULL),
+(8, 'Watanabe Ren', '1995-07-07', 'Male', 'Japanese', 'None', 'JP10008', '2018-11-11', 'Fukuoka', 'Designer', NULL),
+(9, 'Ito Aoi', '1998-03-03', 'Female', 'Japanese', 'None', 'JP10009', '2022-02-02', 'Nagoya', 'Student', NULL),
+(10, 'Nakamura Kaito', '1988-06-30', 'Male', 'Japanese', 'None', 'JP10010', '2020-08-08', 'Tokyo', 'Doctor', NULL),
+(11, 'Kobayashi Hina', '2000-10-10', 'Female', 'Japanese', 'None', 'JP10011', '2022-09-09', 'Saitama', 'Student', NULL),
+(12, 'Kato Haruto', '1985-01-25', 'Male', 'Japanese', 'None', 'JP10012', '2019-12-12', 'Chiba', 'Driver', NULL),
+(13, 'Yoshida Mei', '1987-05-14', 'Female', 'Japanese', 'None', 'JP10013', '2020-05-20', 'Kanagawa', 'Clerk', NULL),
+(14, 'Yamada Taro', '1993-08-08', 'Male', 'Japanese', 'None', 'JP10014', '2021-07-07', 'Tokyo', 'Freelancer', NULL),
+(15, 'Sasaki Hanako', '1994-04-04', 'Female', 'Japanese', 'None', 'JP10015', '2021-01-01', 'Tokyo', 'Artist', NULL),
+(16, 'Yamaguchi Daiki', '1983-09-12', 'Male', 'Japanese', 'None', 'JP10016', '2017-03-15', 'Hiroshima', 'Engineer', NULL),
+(17, 'Matsumoto Akari', '1996-11-22', 'Female', 'Japanese', 'None', 'JP10017', '2022-06-01', 'Sendai', 'Researcher', NULL),
+(18, 'Inoue Riku', '1991-02-18', 'Male', 'Japanese', 'None', 'JP10018', '2019-09-09', 'Kobe', 'Sales', NULL),
+(19, 'Kimura Yui', '1997-12-25', 'Female', 'Japanese', 'None', 'JP10019', '2023-02-14', 'Nara', 'Student', NULL),
+(20, 'Hayashi Souta', '1989-07-19', 'Male', 'Japanese', 'None', 'JP10020', '2020-11-30', 'Okinawa', 'Pilot', NULL),
+(21, 'Shimizu Mio', '1999-01-01', 'Female', 'Japanese', 'None', 'JP10021', '2021-05-05', 'Tokyo', 'Waitress', NULL),
+(22, 'Yamazaki Kenta', '1986-06-06', 'Male', 'Japanese', 'None', 'JP10022', '2018-08-08', 'Tokyo', 'Lawyer', NULL),
+(23, 'Ikeda Nanami', '2005-03-21', 'Female', 'Japanese', 'None', 'JP10023', '2023-04-01', 'Tokyo', 'Student', NULL),
+(24, 'Hashimoto Shin', '1984-10-30', 'Male', 'Japanese', 'None', 'JP10024', '2019-02-28', 'Tokyo', 'Architect', NULL),
+(25, 'Abe Rina', '1992-05-12', 'Female', 'Japanese', 'None', 'JP10025', '2020-10-10', 'Tokyo', 'Nurse', NULL),
+(26, 'Murakami Sho', '1995-08-15', 'Male', 'Japanese', 'None', 'JP10026', '2021-11-23', 'Tokyo', 'IT Support', NULL),
+(27, 'Hasegawa Miki', '1990-04-20', 'Female', 'Japanese', 'None', 'JP10027', '2019-07-19', 'Tokyo', 'HR', NULL),
+(28, 'Ishii Yuuto', '2001-09-02', 'Male', 'Japanese', 'None', 'JP10028', '2022-01-20', 'Tokyo', 'Student', NULL),
+(29, 'Ogawa Saki', '1998-12-12', 'Female', 'Japanese', 'None', 'JP10029', '2023-03-15', 'Tokyo', 'Barista', NULL),
+(30, 'Fujita Takumi', '1982-02-14', 'Male', 'Japanese', 'None', 'JP10030', '2018-06-06', 'Tokyo', 'CEO', NULL),
+(31, 'Okada Asuka', '1985-11-03', 'Female', 'Japanese', 'None', 'JP10031', '2019-04-29', 'Tokyo', 'Director', NULL),
+(32, 'Goto Ryota', '1994-07-28', 'Male', 'Japanese', 'None', 'JP10032', '2021-08-15', 'Tokyo', 'Actor', NULL),
+(33, 'Kondo Mana', '1996-01-09', 'Female', 'Japanese', 'None', 'JP10033', '2022-05-01', 'Tokyo', 'Model', NULL),
+(34, 'Endo Hayato', '1993-10-22', 'Male', 'Japanese', 'None', 'JP10034', '2020-09-30', 'Tokyo', 'Writer', NULL),
+(35, 'Aoki Natsumi', '1997-06-18', 'Female', 'Japanese', 'None', 'JP10035', '2023-02-20', 'Tokyo', 'Editor', NULL),
 
-//HỘ KHẨU – hokhau_hokhau
+-- Vietnamese Group (5 people)
+(36, 'Nguyen Van Hung', '1990-01-01', 'Male', 'Kinh', 'None', 'VN001', '2022-01-01', 'Hanoi', 'Software Dev', NULL),
+(37, 'Tran Thi Mai', '1995-05-05', 'Female', 'Kinh', 'None', 'VN002', '2021-06-15', 'HCMC', 'Translator', NULL),
+(38, 'Le Minh Tuan', '1988-09-09', 'Male', 'Kinh', 'None', 'VN003', '2020-11-20', 'Da Nang', 'Chef', NULL),
+(39, 'Pham Thu Ha', '1998-12-12', 'Female', 'Kinh', 'Catholic', 'VN004', '2023-03-10', 'Hai Phong', 'Student', NULL),
+(40, 'Hoang Quoc Bao', '1992-07-20', 'Male', 'Kinh', 'None', 'VN005', '2019-08-05', 'Hanoi', 'Engineer', NULL),
+
+-- European Group (10 people)
+(41, 'John Smith', '1985-03-15', 'Male', 'American', 'Christian', 'US001', '2020-05-01', 'New York', 'English Teacher', NULL),
+(42, 'Emma Wilson', '1990-07-22', 'Female', 'British', 'Christian', 'UK001', '2019-09-10', 'London', 'Consultant', NULL),
+(43, 'Pierre Dupont', '1988-11-30', 'Male', 'French', 'None', 'FR001', '2021-02-15', 'Paris', 'Chef', NULL),
+(44, 'Anna Müller', '1992-04-18', 'Female', 'German', 'None', 'DE001', '2022-06-20', 'Berlin', 'Engineer', NULL),
+(45, 'Luca Rossi', '1995-08-05', 'Male', 'Italian', 'Catholic', 'IT001', '2023-01-12', 'Rome', 'Architect', NULL),
+(46, 'Sofia Garcia', '1993-12-01', 'Female', 'Spanish', 'Catholic', 'ES001', '2020-10-30', 'Madrid', 'Designer', NULL),
+(47, 'Lars Jensen', '1987-02-14', 'Male', 'Danish', 'None', 'DK001', '2018-04-25', 'Copenhagen', 'IT Manager', NULL),
+(48, 'Elena Petrova', '1996-06-09', 'Female', 'Russian', 'Orthodox', 'RU001', '2022-11-05', 'Moscow', 'Model', NULL),
+(49, 'Oliver Brown', '1989-09-27', 'Male', 'Canadian', 'None', 'CA001', '2019-12-01', 'Toronto', 'Banker', NULL),
+(50, 'Sarah O Connor', '1991-05-23', 'Female', 'Irish', 'Christian', 'IE001', '2021-07-14', 'Dublin', 'Journalist', NULL);
+
+
+-- 2. INSERT HOUSEHOLDS (HO KHAU) - 20 Households
 INSERT INTO hokhau_hokhau
-(sohokhau, sonha, duong, phuong, quan, ngaylamhokhau, sothanhvien, chuhokhau_id, ghichu)
+(id, sohokhau, sonha, duong, phuong, quan, ngaylamhokhau, sothanhvien, chuhokhau_id, ghichu)
 VALUES
-('HK00001','10','Trần Phú','Ba Đình','Hà Nội','2010-01-01',3,1,NULL),
-('HK00002','22','Nguyễn Trãi','Thanh Xuân','Hà Nội','2012-05-01',2,2,NULL),
-('HK00003','35','Lê Lợi','Hải Châu','Đà Nẵng','2015-07-01',4,3,NULL),
-('HK00004','18','Pasteur','Quận 3','TP.HCM','2018-03-01',3,4,NULL),
-('HK00005','50','Hoàng Diệu','Hồng Bàng','Hải Phòng','2016-09-01',2,5,NULL),
-('HK00006','99','Cầu Giấy','Cầu Giấy','Hà Nội','2019-06-01',3,6,NULL),
-('HK00007','12','Kim Mã','Ba Đình','Hà Nội','2020-08-01',2,7,NULL),
-('HK00008','8','Hai Bà Trưng','Hoàn Kiếm','Hà Nội','2017-04-01',3,8,NULL),
-('HK00009','77','Phạm Văn Đồng','Bắc Từ Liêm','Hà Nội','2014-11-01',2,9,NULL),
-('HK00010','66','Điện Biên Phủ','Quận 10','TP.HCM','2021-02-01',2,10,NULL);
-//THÀNH VIÊN HỘ KHẨU – hokhau_thanhvienhokhau
+(1, 'HK-001', '101', 'Sakura St', 'Chuo', 'Tokyo', '2020-01-01', 3, 1, NULL),
+(2, 'HK-002', '102', 'Momiji St', 'Kita', 'Osaka', '2019-06-01', 2, 4, NULL),
+(3, 'HK-003', '201', 'Fuji St', 'Minato', 'Tokyo', '2021-04-01', 1, 7, NULL),
+(4, 'HK-004', '202', 'Ume St', 'Hakata', 'Fukuoka', '2018-11-11', 1, 8, NULL),
+(5, 'HK-005', '301', 'Kiku St', 'Naka', 'Nagoya', '2020-08-08', 2, 10, NULL),
+(6, 'HK-006', '302', 'Matsu St', 'Urawa', 'Saitama', '2019-12-12', 2, 12, NULL),
+(7, 'HK-007', '401', 'Take St', 'Nishi', 'Yokohama', '2021-07-07', 2, 14, NULL),
+(8, 'HK-008', '402', 'Ran St', 'Naka', 'Hiroshima', '2017-03-15', 1, 16, NULL),
+(9, 'HK-009', '501', 'Yuri St', 'Chuo', 'Kobe', '2019-09-09', 2, 18, NULL),
+(10, 'HK-010', '502', 'Bara St', 'Naha', 'Okinawa', '2020-11-30', 2, 20, NULL),
+(11, 'HK-011', '601', 'Hasu St', 'Shinjuku', 'Tokyo', '2018-08-08', 2, 22, NULL),
+(12, 'HK-012', '602', 'Tsubaki St', 'Shibuya', 'Tokyo', '2019-02-28', 1, 24, NULL),
+(13, 'HK-013', '701', 'Botan St', 'Ikebukuro', 'Tokyo', '2021-11-23', 1, 26, NULL),
+(14, 'HK-014', '702', 'Ayame St', 'Ueno', 'Tokyo', '2022-01-20', 1, 28, NULL),
+(15, 'HK-015', '801', 'Sumire St', 'Roppongi', 'Tokyo', '2018-06-06', 2, 30, NULL),
+(16, 'HK-016', '802', 'Himawari St', 'Ginza', 'Tokyo', '2021-08-15', 2, 32, NULL),
+(17, 'HK-017', '901', 'Asagao St', 'Akasaka', 'Tokyo', '2020-09-30', 1, 34, NULL),
+(18, 'HK-018', '902', 'Ajisai St', 'Shimbashi', 'Tokyo', '2022-01-01', 1, 36, NULL), -- Vietnamese HoH
+(19, 'HK-019', '1001', 'Suzuran St', 'Ebisu', 'Tokyo', '2020-11-20', 1, 38, NULL), -- Vietnamese HoH
+(20, 'HK-020', '1002', 'Nanohana St', 'Meguro', 'Tokyo', '2019-08-05', 1, 40, NULL); -- Vietnamese HoH
+
+
+-- 3. INSERT HOUSEHOLD MEMBERS (THANH VIEN)
 INSERT INTO hokhau_thanhvienhokhau
 (hokhau_id, nhankhau_id, quanhevoichuho, ngaythemnhankhau)
 VALUES
-(1,1,'Chủ hộ','2010-01-01'),
-(1,2,'Vợ','2010-01-01'),
-(1,5,'Con','2012-02-15'),
-(2,2,'Chủ hộ','2012-05-01'),
-(2,6,'Vợ','2012-05-01'),
-(3,3,'Chủ hộ','2015-07-01'),
-(3,8,'Vợ','2015-07-01'),
-(4,4,'Chủ hộ','2018-03-01'),
-(5,5,'Chủ hộ','2016-09-01'),
-(6,6,'Chủ hộ','2019-06-01');
+(1, 1, 'Head', '2020-01-01'), -- Tanaka Ken
+(1, 2, 'Wife', '2020-01-01'), -- Tanaka Yumi
+(1, 3, 'Child', '2023-01-01'), -- Tanaka Hiro
+(2, 4, 'Head', '2019-06-01'), -- Suzuki Ichiro
+(2, 5, 'Wife', '2019-06-01'), -- Suzuki Sakura
+(3, 7, 'Head', '2021-04-01'), -- Takahashi Emi
+(4, 8, 'Head', '2018-11-11'), -- Watanabe Ren
+(5, 10, 'Head', '2020-08-08'), -- Nakamura Kaito
+(5, 9, 'Sister', '2022-02-02'), -- Ito Aoi (Living with brother)
+(6, 12, 'Head', '2019-12-12'), -- Kato Haruto
+(6, 11, 'Niece', '2022-09-09'), -- Kobayashi Hina
+(7, 14, 'Head', '2021-07-07'),
+(7, 13, 'Wife', '2021-07-07'),
+(8, 16, 'Head', '2017-03-15'),
+(9, 18, 'Head', '2019-09-09'),
+(9, 17, 'Wife', '2022-06-01'),
+(10, 20, 'Head', '2020-11-30'),
+(10, 19, 'Cousin', '2023-02-14'),
+(11, 22, 'Head', '2018-08-08'),
+(11, 21, 'Wife', '2021-05-05'),
+(12, 24, 'Head', '2019-02-28'),
+(13, 26, 'Head', '2021-11-23'),
+(14, 28, 'Head', '2022-01-20'),
+(15, 30, 'Head', '2018-06-06'),
+(15, 31, 'Wife', '2019-04-29'),
+(16, 32, 'Head', '2021-08-15'),
+(16, 33, 'Partner', '2022-05-01'),
+(17, 34, 'Head', '2020-09-30'),
+(18, 36, 'Head', '2022-01-01'), -- Nguyen Van Hung
+(19, 38, 'Head', '2020-11-20'), -- Le Minh Tuan
+(20, 40, 'Head', '2019-08-05'); -- Hoang Quoc Bao
 
-//LỊCH SỬ THAY ĐỔI HỘ KHẨU – hokhau_lichsuthaydoihokhau
-INSERT INTO hokhau_lichsuthaydoihokhau
-(hokhau_id, nhankhau_id, loaithaydoi, ngaythaydoi)
-VALUES
-(1,5,1,'2012-02-15'),
-(2,6,1,'2012-05-01'),
-(3,8,1,'2015-07-01'),
-(4,4,1,'2018-03-01'),
-(5,5,1,'2016-09-01'),
-(6,6,1,'2019-06-01'),
-(1,2,2,'2023-01-01'),
-(2,2,2,'2022-01-01'),
-(3,3,2,'2021-01-01'),
-(4,4,2,'2020-01-01');
 
-//TẠM TRÚ – TẠM VẮNG – tamtrutamvang_tamtrutamvang
+-- 4. INSERT TEMP RESIDENCE / ABSENCE (TAM TRU - TAM VANG)
+-- Covering all requested scenarios
+
 INSERT INTO tamtrutamvang_tamtrutamvang
 (trangthai, diachitamtrutamvang, thoigian, noidungdenghi, nhankhau_id)
 VALUES
-('Tạm trú','KTX Bách Khoa','2022-09-01','Học tập',3),
-('Tạm vắng','TP.HCM','2023-06-01','Công tác',1),
-('Tạm trú','Cầu Giấy','2021-03-01','Làm việc',6),
-('Tạm vắng','Đà Nẵng','2020-07-01','Du lịch',2),
-('Tạm trú','Hải Phòng','2022-01-01','Làm việc',7),
-('Tạm vắng','Huế','2021-11-01','Thăm gia đình',8),
-('Tạm trú','Nam Định','2019-05-01','Học nghề',9),
-('Tạm vắng','Hà Nam','2020-08-01','Chữa bệnh',4),
-('Tạm trú','TP.HCM','2022-06-01','Học tập',10),
-('Tạm vắng','Quảng Ninh','2023-03-01','Công tác',5);
+-- SCENARIO A: Foreigners/Others Registering Temporary Residence (Tạm trú) - Moving In
+('Tạm trú', 'Room 101, BlueMoon Apts', '2024-01-10', 'Work', 41), -- John Smith
+('Tạm trú', 'Room 102, BlueMoon Apts', '2024-01-15', 'Work', 42), -- Emma Wilson
+('Tạm trú', 'Room 103, BlueMoon Apts', '2024-02-01', 'Study', 37), -- Tran Thi Mai (VN)
+('Tạm trú', 'Room 104, BlueMoon Apts', '2024-02-20', 'Internship', 43), -- Pierre Dupont
+('Tạm trú', 'Room 105, BlueMoon Apts', '2024-03-01', 'Work', 44), -- Anna Müller
+('Tạm trú', 'Room 106, BlueMoon Apts', '2024-03-05', 'Study', 39), -- Pham Thu Ha (VN)
+('Tạm trú', 'Room 201, BlueMoon Apts', '2024-03-10', 'Tourism', 45), -- Luca Rossi
+('Tạm trú', 'Room 202, BlueMoon Apts', '2024-03-15', 'Work', 46), -- Sofia Garcia
+('Tạm trú', 'Room 203, BlueMoon Apts', '2024-04-01', 'Business', 47), -- Lars Jensen
+('Tạm trú', 'Room 204, BlueMoon Apts', '2024-04-05', 'Visiting', 48), -- Elena Petrova
+('Tạm trú', 'Room 205, BlueMoon Apts', '2024-04-10', 'Work', 49), -- Oliver Brown
+('Tạm trú', 'Room 206, BlueMoon Apts', '2024-04-15', 'Study', 50), -- Sarah O Connor
+-- ID 6: Sato Takashi (Hokkaido Chef) -> Tạm trú tại Tokyo
+('Tạm trú', 'Room 303, BlueMoon Apts', '2023-01-10', 'Work', 6),
 
-//KHOẢN THU – khoanthu_khoanthu
-INSERT INTO khoanthu_khoanthu
-(tenkhoanthu, ngaytao, thoihan, batbuoc, ghichu, sotien)
-VALUES
-('Phí vệ sinh','2024-01-01','2024-12-31',TRUE,NULL,100000),
-('Phí an ninh','2024-01-01','2024-12-31',TRUE,NULL,150000),
-('Phí điện','2024-01-01','2024-12-31',FALSE,NULL,200000),
-('Phí nước','2024-01-01','2024-12-31',FALSE,NULL,120000),
-('Quỹ tổ dân phố','2024-01-01','2024-12-31',TRUE,NULL,50000),
-('Phí môi trường','2024-01-01','2024-12-31',TRUE,NULL,80000),
-('Phí phòng cháy','2024-01-01','2024-12-31',TRUE,NULL,70000),
-('Phí chiếu sáng','2024-01-01','2024-12-31',FALSE,NULL,60000),
-('Phí an sinh','2024-01-01','2024-12-31',TRUE,NULL,90000),
-('Phí khác','2024-01-01','2024-12-31',FALSE,NULL,40000);
+-- ID 9: Ito Aoi (Nagoya Student) -> Tạm trú để đi học
+('Tạm trú', 'Room 304, BlueMoon Apts', '2023-04-01', 'Study', 9),
 
+-- ID 11: Kobayashi Hina (Saitama Student)
+('Tạm trú', 'Room 305, BlueMoon Apts', '2023-04-01', 'Study', 11),
 
-//NỘP TIỀN – noptien_noptien (10 dòng)
-INSERT INTO noptien_noptien
-(hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
-VALUES
-(1,1,'Nguyễn Văn An',100000,'2024-02-01'),
-(1,2,'Nguyễn Văn An',150000,'2024-02-01'),
-(2,1,'Trần Thị Hoa',100000,'2024-02-03'),
-(3,3,'Phạm Minh Tuấn',200000,'2024-02-05'),
-(4,4,'Lê Thị Hương',120000,'2024-02-06'),
-(5,5,'Hoàng Gia Bảo',50000,'2024-02-07'),
-(6,6,'Nguyễn Thị Lan',80000,'2024-02-08'),
-(7,7,'Đặng Quốc Việt',70000,'2024-02-09'),
-(8,8,'Vũ Thị Mai',60000,'2024-02-10'),
-(9,9,'Bùi Văn Long',90000,'2024-02-11');
+-- ID 13: Yoshida Mei (Kanagawa Clerk)
+('Tạm trú', 'Room 306, BlueMoon Apts', '2022-09-15', 'Work', 13),
 
+-- ID 15: Sasaki Hanako (Tokyo Artist) -> Thuê nhà làm xưởng vẽ
+('Tạm trú', 'Room 403, Studio B', '2021-02-01', 'Work', 15),
+
+-- ID 17: Matsumoto Akari (Sendai Researcher)
+('Tạm trú', 'Room 404, BlueMoon Apts', '2023-06-01', 'Research', 17),
+
+-- ID 19: Kimura Yui (Nara Student)
+('Tạm trú', 'Room 405, BlueMoon Apts', '2023-03-20', 'Study', 19),
+
+-- ID 21: Shimizu Mio (Tokyo Waitress)
+('Tạm trú', 'Room 406, BlueMoon Apts', '2022-11-11', 'Work', 21),
+
+-- ID 23: Ikeda Nanami (Tokyo Student)
+('Tạm trú', 'Room 503, BlueMoon Apts', '2023-04-05', 'Study', 23),
+
+-- ID 25: Abe Rina (Tokyo Nurse)
+('Tạm trú', 'Room 504, BlueMoon Apts', '2021-12-01', 'Work', 25),
+
+-- ID 27: Hasegawa Miki (Tokyo HR)
+('Tạm trú', 'Room 505, BlueMoon Apts', '2020-08-15', 'Work', 27),
+
+-- ID 29: Ogawa Saki (Tokyo Barista)
+('Tạm trú', 'Room 506, BlueMoon Apts', '2023-01-20', 'Work', 29),
+
+-- ID 35: Aoki Natsumi (Tokyo Editor)
+('Tạm trú', 'Room 603, BlueMoon Apts', '2022-10-10', 'Work', 35),
+-- SCENARIO B: Registered Tạm trú then Tạm vắng (History)
+-- Need to create a history for John Smith (41). He arrived in Jan, left in June.
+('Tạm vắng', 'Osaka Branch Office', '2024-06-01', 'Business Trip', 41), -- John Smith leaves
+
+-- SCENARIO C: Registered Tạm vắng but returned (Registered Tạm trú again)
+-- Tanaka Ken (1) left for a while and came back.
+('Tạm vắng', 'Sapporo', '2023-05-01', 'Project A', 1), -- Old record
+('Tạm trú', 'Home (Returned)', '2023-12-01', 'End of Project', 1), -- Returned
+
+-- SCENARIO D: Registered Tạm vắng (Current status: Away)
+('Tạm vắng', 'Kyoto University', '2024-04-01', 'Study', 3), -- Tanaka Hiro (Child) goes to study
+('Tạm vắng', 'London HQ', '2024-05-20', 'Training', 4), -- Suzuki Ichiro goes abroad
+('Tạm vắng', 'Hospitals', '2024-06-10', 'Medical Treatment', 12), -- Kato Haruto
+
+-- SCENARIO E: Vietnamese Residents moving around
+('Tạm vắng', 'Hanoi', '2024-02-01', 'Tet Holiday', 36), -- Nguyen Van Hung goes home
+('Tạm trú', 'BlueMoon Apts', '2024-02-20', 'Return from Tet', 36); -- Nguyen Van Hung returns
+
+-- 5. UPDATE SEQUENCES (Optional but recommended for PostgreSQL to avoid ID conflicts)
+-- SELECT setval('nhankhau_nhankhau_id_seq', (SELECT MAX(id) FROM nhankhau_nhankhau));
+-- SELECT setval('hokhau_hokhau_id_seq', (SELECT MAX(id) FROM hokhau_hokhau));
+-- TỰ ĐỘNG BỔ SUNG TẠM TRÚ CHO NHỮNG NGƯỜI CÒN THIẾU
+INSERT INTO tamtrutamvang_tamtrutamvang
+(trangthai, diachitamtrutamvang, thoigian, noidungdenghi, nhankhau_id)
+SELECT 
+    'Tạm trú' AS trangthai,                         -- Trạng thái mặc định
+    'BlueMoon Apts (Auto-Added)' AS diachitamtrutamvang, -- Địa chỉ chung
+    '2024-01-01' AS thoigian,                       -- Ngày bắt đầu mặc định
+    'System Update' AS noidungdenghi,               -- Lý do
+    n.id                                            -- Lấy ID của người còn thiếu
+FROM nhankhau_nhankhau n
+LEFT JOIN tamtrutamvang_tamtrutamvang t ON n.id = t.nhankhau_id
+WHERE t.id IS NULL; -- Điều kiện: Chỉ lấy người chưa có hồ sơ
+-- BƯỚC 1: TẠO HỘ KHẨU MỚI CHO NHỮNG NGƯỜI CHƯA CÓ HỘ KHẨU
+-- (Mỗi người 1 sổ, lấy chính họ làm chủ hộ)
+
+INSERT INTO hokhau_hokhau (sohokhau, sonha, duong, phuong, quan, ngaylamhokhau, sothanhvien, chuhokhau_id, ghichu)
+SELECT 
+    CONCAT('HK-AUTO-', n.id),       -- Tạo số hộ khẩu tự động
+    'P.Auto',                       -- Số nhà giả định
+    'BlueMoon St',                  -- Đường giả định
+    'Unknown', 
+    'Tokyo', 
+    CURRENT_DATE,                   -- Ngày lập là hôm nay
+    1,                              -- Hộ này có 1 thành viên
+    n.id,                           -- Chính người đó là chủ hộ
+    'Tự động tạo bổ sung'
+FROM nhankhau_nhankhau n
+WHERE NOT EXISTS (
+    SELECT 1 FROM hokhau_thanhvienhokhau tv WHERE tv.nhankhau_id = n.id
+);
+
+-- BƯỚC 2: GẮN NHỮNG NGƯỜI ĐÓ VÀO BẢNG THÀNH VIÊN HỘ KHẨU
+-- (Để hệ thống biết họ thuộc về hộ khẩu vừa tạo ở trên)
+
+INSERT INTO hokhau_thanhvienhokhau (hokhau_id, nhankhau_id, quanhevoichuho, ngaythemnhankhau)
+SELECT 
+    h.id, 
+    h.chuhokhau_id, 
+    'Chủ hộ', 
+    CURRENT_DATE
+FROM hokhau_hokhau h
+WHERE h.ghichu = 'Tự động tạo bổ sung';
+-- 1. XÓA DỮ LIỆU CŨ ĐỂ TRÁNH TRÙNG LẶP (Optional)
+DELETE FROM noptien_noptien;
+DELETE FROM khoanthu_khoanthu;
+
+-- 2. TẠO DANH SÁCH KHOẢN THU (TIẾNG NHẬT)
+-- ID được gán cứng để dễ tham chiếu khi nộp tiền
+INSERT INTO khoanthu_khoanthu (id, tenkhoanthu, sotien, batbuoc, ngaytao, thoihan, ghichu) VALUES
+(1, '管理費', 5000, TRUE, '2024-01-01', '2024-12-31', NULL),          -- Phí quản lý
+(2, '修繕積立金', 3000, TRUE, '2024-01-01', '2024-12-31', NULL),      -- Quỹ bảo trì
+(3, '駐車場代', 10000, FALSE, '2024-01-01', '2024-12-31', NULL),      -- Phí đỗ xe
+(4, '駐輪場代', 1000, FALSE, '2024-01-01', '2024-12-31', NULL),       -- Phí đỗ xe đạp
+(5, '町内会費', 500, TRUE, '2024-01-01', '2024-12-31', NULL),         -- Phí hội phố
+(6, '清掃費', 2000, TRUE, '2024-01-01', '2024-12-31', NULL),          -- Phí vệ sinh
+(7, '水道光熱費 (共用)', 1500, TRUE, '2024-02-01', '2024-02-28', NULL), -- Điện nước chung
+(8, 'インターネット使用料', 4000, FALSE, '2024-01-01', '2024-12-31', NULL), -- Internet
+(9, '日本赤十字社会費', 500, FALSE, '2024-04-01', '2024-04-30', NULL),  -- Hội chữ thập đỏ
+(10, '夏祭り寄付金', 0, FALSE, '2024-06-01', '2024-08-31', NULL);      -- Ủng hộ lễ hội mùa hè
+
+-- 3. TỰ ĐỘNG ĐÓNG TIỀN CHO TẤT CẢ CÁC HỘ (Đảm bảo đủ 39+ hộ)
+
+-- Kịch bản 1: Tất cả các hộ đều đóng "Phí quản lý" (ID 1)
+INSERT INTO noptien_noptien (hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+SELECT 
+    h.id, 
+    1, -- ID khoản thu: Kanri-hi
+    n.hoten, -- Lấy tên chủ hộ đi đóng
+    5000, 
+    '2024-02-01'
+FROM hokhau_hokhau h
+JOIN nhankhau_nhankhau n ON h.chuhokhau_id = n.id;
+
+-- Kịch bản 2: Tất cả các hộ đều đóng "Phí vệ sinh" (ID 6)
+INSERT INTO noptien_noptien (hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+SELECT 
+    h.id, 
+    6, -- ID khoản thu: Seiso-hi
+    n.hoten, 
+    2000, 
+    '2024-02-02'
+FROM hokhau_hokhau h
+JOIN nhankhau_nhankhau n ON h.chuhokhau_id = n.id;
+
+-- Kịch bản 3: Tất cả các hộ đều đóng "Hội phố" (ID 5)
+INSERT INTO noptien_noptien (hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+SELECT 
+    h.id, 
+    5, -- ID khoản thu: Chonaikai-hi
+    n.hoten, 
+    500, 
+    '2024-02-03'
+FROM hokhau_hokhau h
+JOIN nhankhau_nhankhau n ON h.chuhokhau_id = n.id;
+
+-- Kịch bản 4: Chỉ các hộ có ID chẵn mới đóng "Phí đỗ xe" (ID 3) - Giả lập khoảng 50% số hộ có ô tô
+INSERT INTO noptien_noptien (hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+SELECT 
+    h.id, 
+    3, -- ID khoản thu: Chushajo-dai
+    n.hoten, 
+    10000, 
+    '2024-02-05'
+FROM hokhau_hokhau h
+JOIN nhankhau_nhankhau n ON h.chuhokhau_id = n.id
+WHERE h.id % 2 = 0;
+
+-- Kịch bản 5: Chỉ các hộ có ID chia hết cho 3 mới đóng "Internet" (ID 8)
+INSERT INTO noptien_noptien (hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+SELECT 
+    h.id, 
+    8, -- ID khoản thu: Internet
+    n.hoten, 
+    4000, 
+    '2024-02-06'
+FROM hokhau_hokhau h
+JOIN nhankhau_nhankhau n ON h.chuhokhau_id = n.id
+WHERE h.id % 3 = 0;
+
+-- Kịch bản 6: Một vài hộ đóng góp cho "Lễ hội" (ID 10) - Số tiền khác nhau
+INSERT INTO noptien_noptien (hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+VALUES 
+((SELECT id FROM hokhau_hokhau LIMIT 1 OFFSET 0), 10, 'Tanaka Ken', 5000, '2024-06-15'),
+((SELECT id FROM hokhau_hokhau LIMIT 1 OFFSET 1), 10, 'Suzuki Ichiro', 3000, '2024-06-16'),
+((SELECT id FROM hokhau_hokhau LIMIT 1 OFFSET 2), 10, 'Takahashi Emi', 10000, '2024-06-17'),
+((SELECT id FROM hokhau_hokhau LIMIT 1 OFFSET 38), 10, 'Hoang Quoc Bao', 2000, '2024-06-18'); 
+
+-- CẬP NHẬT LẠI ID SEQUENCE ĐỂ KHÔNG BỊ LỖI KHI THÊM MỚI SAU NÀY
+-- (Chạy riêng từng dòng nếu cần thiết, tùy phiên bản Postgres)
+-- SELECT setval('khoanthu_khoanthu_id_seq', (SELECT MAX(id) FROM khoanthu_khoanthu));
+-- SELECT setval('noptien_noptien_id_seq', (SELECT MAX(id) FROM noptien_noptien));

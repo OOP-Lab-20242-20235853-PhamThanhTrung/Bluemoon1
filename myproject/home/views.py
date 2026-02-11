@@ -37,17 +37,17 @@ def home(request):
     tong_top3 = sum(stat['total'] for stat in khoanthu_stats)
     if tong_top3 < tong_tat_ca:
         khoanthu_stats.append({
-            'khoanthu__tenkhoanthu': 'Khác',
+            'khoanthu__tenkhoanthu':'他',
             'total': tong_tat_ca - tong_top3,
             'percentage': (tong_tat_ca - tong_top3) / tong_tat_ca * 100 if tong_tat_ca > 0 else 0
         })
-        khoanthu_labels.append('Khác')
+        khoanthu_labels.append('他')
         khoanthu_series.append(float(tong_tat_ca - tong_top3))
 
     # Chuyển đổi sang format cho biểu đồ: labels và series
     labels = list(doanhthu_theo_thang.keys())
     # Chuyển doanh thu sang đơn vị triệu VND để dễ hiển thị (chia cho 1,000,000)
-    series = [[value / 1000000 for value in doanhthu_theo_thang.values()]]
+    series = [[value / 1000 for value in doanhthu_theo_thang.values()]]
 
     return render(request, 'index.html', {
         'total_nhankhau': total_nhankhau,

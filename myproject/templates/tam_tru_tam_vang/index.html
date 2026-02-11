@@ -80,7 +80,13 @@
                                 {% for item in danh_sach %}
                                 <tr>
                                     <td><strong>{{ item.nhankhau }}</strong></td>
-                                    <td>{{ item.trangthai }}</td>
+                                    <td>
+                                        {% if item.trangthai == 'Tạm trú' %}
+                                            <span class="badge bg-success text-white">一時滞在</span>
+                                        {% else %}
+                                            <span class="badge bg-warning text-dark">一時不在</span>
+                                        {% endif %}
+                                    </td>
                                     <td>{{ item.diachitamtrutamvang }}</td>
                                     <td>{{ item.thoigian|date:"d/m/Y" }}</td>
                                     <td>{{ item.noidungdenghi }}</td>   

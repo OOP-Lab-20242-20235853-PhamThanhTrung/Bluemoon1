@@ -8,7 +8,7 @@ class TamTruTamVangForm(forms.ModelForm):
         
         widgets = {
             'nhankhau': forms.Select(attrs={'class': 'form-control'}),
-            'trangthai': forms.Select(choices=[('Tạm trú', '一時滞在'), ('Tạm vắng', '一時不在')], attrs={'class': 'form-control'}),
+            'trangthai': forms.Select(choices=[('Tạm trú', '滞在'), ('Tạm vắng', '不在')], attrs={'class': 'form-control'}),
             'diachitamtrutamvang': forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Nhập địa chỉ...'}),
             'thoigian': forms.DateInput(attrs={'class': 'form-control', 'type': 'date'}),
             'noidungdenghi': forms.Textarea(attrs={'class': 'form-control', 'rows': 3}),
