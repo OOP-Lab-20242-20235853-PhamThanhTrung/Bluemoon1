@@ -1,0 +1,109 @@
+{% extends 'tamtrutamvang.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-breadcrumb">
+    <div class="row">
+        <div class="col-7 align-self-center">
+            <h3 class="page-title text-truncate text-dark font-weight-medium mb-1">
+                一時滞在・不在管理
+            </h3>
+            <div class="d-flex align-items-center">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb m-0 p-0">
+                        <li class="breadcrumb-item"><a href="/">ダッシュボード</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">一覧</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+        <div class="col-5 align-self-center">
+            <div class="customize-input float-end">
+                <a href="{% url 'them_moi_tttv' %}" class="btn btn-primary shadow-sm">
+                    <i class="fas fa-plus"></i> 新規登録
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between mb-3">
+                        <h4 class="card-title">滞在状況一覧</h4>
+                            <div class="row mb-3 align-items-center">
+                                <div class="col-auto">
+                                    <div class="btn-group" role="group">
+                                        
+                                        <a href="?filter={% if current_filter == 'tam_tru' %}{% else %}tam_tru{% endif %}&q={{ search_query }}" 
+                                        class="btn {% if current_filter == 'tam_tru' %}btn-success text-white{% else %}btn-outline-success{% endif %}">
+                                        <i class="fas fa-user-check"></i> 一時滞在
+                                        </a>
+
+                                        <a href="?filter={% if current_filter == 'tam_vang' %}{% else %}tam_vang{% endif %}&q={{ search_query }}" 
+                                        class="btn {% if current_filter == 'tam_vang' %}btn-warning text-dark{% else %}btn-outline-warning{% endif %}">
+                                        <i class="fas fa-user-clock"></i> 一時不在
+                                        </a>
+
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <form method="GET" action="" class="d-flex">
+                                        <input type="hidden" name="filter" value="{{current_filter}}">
+
+                                        <input type="text" name="q" value="{{ search_query }}" placeholder="氏名または身分証番号を入力..." class="form-control me-2">
+
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                            <thead class="bg-primary text-white">
+                                <tr>
+                                    <th>氏名</th>
+                                    <th>ステータス</th>
+                                    <th>住所</th>
+                                    <th>日付</th>
+                                    <th>理由</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in danh_sach %}
+                                <tr>
+                                    <td><strong>{{ item.nhankhau }}</strong></td>
+                                    <td>{{ item.trangthai }}</td>
+                                    <td>{{ item.diachitamtrutamvang }}</td>
+                                    <td>{{ item.thoigian|date:"d/m/Y" }}</td>
+                                    <td>{{ item.noidungdenghi }}</td>   
+                                    <td>
+                                        <a href="{% url 'sua_tttv' item.id %}" class="btn btn-sm btn-outline-info" title="編集" style="font-size: 1.5rem;">
+                                            <i class="fas fa-edit"></i> </a>
+                                        
+                                        <a href="{% url 'in_phieu_tttv' item.id %}" class="btn btn-sm btn-outline-warning" title="証明書印刷" target="_blank" style="font-size: 0.6rem;">
+                                            <i data-feather="printer"></i> </a>
+                                    </td>
+                                </tr>
+                                {% empty %}
+                                <tr>
+                                    <td colspan="6" class="text-center text-muted">データがありません。</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

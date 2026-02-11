@@ -1,0 +1,106 @@
+//NHÂN KHẨU – nhankhau_nhankhau
+
+INSERT INTO nhankhau_nhankhau
+(hoten, ngaysinh, gioitinh, dantoc, tongiao, cccd, ngaycap, noicap, nghenghiep, ghichu)
+VALUES
+('Nguyễn Văn An','1985-04-12','Nam','Kinh','Không','100000000001','2020-01-01','CA Hà Nội','Kỹ sư',NULL),
+('Trần Thị Hoa','1990-09-21','Nữ','Kinh','Không','100000000002','2021-03-01','CA Hà Nội','Giáo viên',NULL),
+('Phạm Minh Tuấn','2000-12-02','Nam','Kinh','Không','100000000003','2022-07-01','CA TP.HCM','Sinh viên',NULL),
+('Lê Thị Hương','1995-06-30','Nữ','Kinh','Phật giáo','100000000004','2019-11-01','CA Hà Nội','Nhân viên VP',NULL),
+('Hoàng Gia Bảo','2012-02-15','Nam','Kinh','Không','100000000005','2023-05-01','CA Hà Nội','Học sinh',NULL),
+('Nguyễn Thị Lan','1988-08-18','Nữ','Kinh','Không','100000000006','2018-04-01','CA Hải Phòng','Kế toán',NULL),
+('Đặng Quốc Việt','1979-01-10','Nam','Kinh','Không','100000000007','2017-02-01','CA Hà Nội','Kinh doanh',NULL),
+('Vũ Thị Mai','1992-03-25','Nữ','Kinh','Không','100000000008','2020-09-01','CA Nam Định','Y tá',NULL),
+('Bùi Văn Long','1965-11-11','Nam','Kinh','Không','100000000009','2016-06-01','CA Hà Nội','Hưu trí',NULL),
+('Phan Thị Ngọc','2003-07-19','Nữ','Kinh','Không','100000000010','2022-01-01','CA TP.HCM','Sinh viên',NULL);
+
+//HỘ KHẨU – hokhau_hokhau
+INSERT INTO hokhau_hokhau
+(sohokhau, sonha, duong, phuong, quan, ngaylamhokhau, sothanhvien, chuhokhau_id, ghichu)
+VALUES
+('HK00001','10','Trần Phú','Ba Đình','Hà Nội','2010-01-01',3,1,NULL),
+('HK00002','22','Nguyễn Trãi','Thanh Xuân','Hà Nội','2012-05-01',2,2,NULL),
+('HK00003','35','Lê Lợi','Hải Châu','Đà Nẵng','2015-07-01',4,3,NULL),
+('HK00004','18','Pasteur','Quận 3','TP.HCM','2018-03-01',3,4,NULL),
+('HK00005','50','Hoàng Diệu','Hồng Bàng','Hải Phòng','2016-09-01',2,5,NULL),
+('HK00006','99','Cầu Giấy','Cầu Giấy','Hà Nội','2019-06-01',3,6,NULL),
+('HK00007','12','Kim Mã','Ba Đình','Hà Nội','2020-08-01',2,7,NULL),
+('HK00008','8','Hai Bà Trưng','Hoàn Kiếm','Hà Nội','2017-04-01',3,8,NULL),
+('HK00009','77','Phạm Văn Đồng','Bắc Từ Liêm','Hà Nội','2014-11-01',2,9,NULL),
+('HK00010','66','Điện Biên Phủ','Quận 10','TP.HCM','2021-02-01',2,10,NULL);
+//THÀNH VIÊN HỘ KHẨU – hokhau_thanhvienhokhau
+INSERT INTO hokhau_thanhvienhokhau
+(hokhau_id, nhankhau_id, quanhevoichuho, ngaythemnhankhau)
+VALUES
+(1,1,'Chủ hộ','2010-01-01'),
+(1,2,'Vợ','2010-01-01'),
+(1,5,'Con','2012-02-15'),
+(2,2,'Chủ hộ','2012-05-01'),
+(2,6,'Vợ','2012-05-01'),
+(3,3,'Chủ hộ','2015-07-01'),
+(3,8,'Vợ','2015-07-01'),
+(4,4,'Chủ hộ','2018-03-01'),
+(5,5,'Chủ hộ','2016-09-01'),
+(6,6,'Chủ hộ','2019-06-01');
+
+//LỊCH SỬ THAY ĐỔI HỘ KHẨU – hokhau_lichsuthaydoihokhau
+INSERT INTO hokhau_lichsuthaydoihokhau
+(hokhau_id, nhankhau_id, loaithaydoi, ngaythaydoi)
+VALUES
+(1,5,1,'2012-02-15'),
+(2,6,1,'2012-05-01'),
+(3,8,1,'2015-07-01'),
+(4,4,1,'2018-03-01'),
+(5,5,1,'2016-09-01'),
+(6,6,1,'2019-06-01'),
+(1,2,2,'2023-01-01'),
+(2,2,2,'2022-01-01'),
+(3,3,2,'2021-01-01'),
+(4,4,2,'2020-01-01');
+
+//TẠM TRÚ – TẠM VẮNG – tamtrutamvang_tamtrutamvang
+INSERT INTO tamtrutamvang_tamtrutamvang
+(trangthai, diachitamtrutamvang, thoigian, noidungdenghi, nhankhau_id)
+VALUES
+('Tạm trú','KTX Bách Khoa','2022-09-01','Học tập',3),
+('Tạm vắng','TP.HCM','2023-06-01','Công tác',1),
+('Tạm trú','Cầu Giấy','2021-03-01','Làm việc',6),
+('Tạm vắng','Đà Nẵng','2020-07-01','Du lịch',2),
+('Tạm trú','Hải Phòng','2022-01-01','Làm việc',7),
+('Tạm vắng','Huế','2021-11-01','Thăm gia đình',8),
+('Tạm trú','Nam Định','2019-05-01','Học nghề',9),
+('Tạm vắng','Hà Nam','2020-08-01','Chữa bệnh',4),
+('Tạm trú','TP.HCM','2022-06-01','Học tập',10),
+('Tạm vắng','Quảng Ninh','2023-03-01','Công tác',5);
+
+//KHOẢN THU – khoanthu_khoanthu
+INSERT INTO khoanthu_khoanthu
+(tenkhoanthu, ngaytao, thoihan, batbuoc, ghichu, sotien)
+VALUES
+('Phí vệ sinh','2024-01-01','2024-12-31',TRUE,NULL,100000),
+('Phí an ninh','2024-01-01','2024-12-31',TRUE,NULL,150000),
+('Phí điện','2024-01-01','2024-12-31',FALSE,NULL,200000),
+('Phí nước','2024-01-01','2024-12-31',FALSE,NULL,120000),
+('Quỹ tổ dân phố','2024-01-01','2024-12-31',TRUE,NULL,50000),
+('Phí môi trường','2024-01-01','2024-12-31',TRUE,NULL,80000),
+('Phí phòng cháy','2024-01-01','2024-12-31',TRUE,NULL,70000),
+('Phí chiếu sáng','2024-01-01','2024-12-31',FALSE,NULL,60000),
+('Phí an sinh','2024-01-01','2024-12-31',TRUE,NULL,90000),
+('Phí khác','2024-01-01','2024-12-31',FALSE,NULL,40000);
+
+
+//NỘP TIỀN – noptien_noptien (10 dòng)
+INSERT INTO noptien_noptien
+(hokhau_id, khoanthu_id, nguoinoptien, sotien, ngaynop)
+VALUES
+(1,1,'Nguyễn Văn An',100000,'2024-02-01'),
+(1,2,'Nguyễn Văn An',150000,'2024-02-01'),
+(2,1,'Trần Thị Hoa',100000,'2024-02-03'),
+(3,3,'Phạm Minh Tuấn',200000,'2024-02-05'),
+(4,4,'Lê Thị Hương',120000,'2024-02-06'),
+(5,5,'Hoàng Gia Bảo',50000,'2024-02-07'),
+(6,6,'Nguyễn Thị Lan',80000,'2024-02-08'),
+(7,7,'Đặng Quốc Việt',70000,'2024-02-09'),
+(8,8,'Vũ Thị Mai',60000,'2024-02-10'),
+(9,9,'Bùi Văn Long',90000,'2024-02-11');
+

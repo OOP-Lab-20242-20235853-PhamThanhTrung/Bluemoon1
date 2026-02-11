@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>一時滞在・不在届出書印刷</title>
+    <style>
+        /* Thêm font tiếng Nhật trang trọng (Mincho) */
+        body { 
+            font-family: "MS Mincho", "Yu Mincho", "Times New Roman", serif; 
+            padding: 40px; 
+            line-height: 1.8; 
+            color: #000;
+        }
+        .header { text-align: center; margin-bottom: 40px; }
+        .header h3 { margin: 0; font-size: 16pt; font-weight: normal; }
+        .header h4 { margin: 5px 0; font-size: 12pt; font-weight: normal; }
+        
+        .title { 
+            text-align: center; 
+            margin: 40px 0; 
+            font-weight: bold; 
+            font-size: 24px; 
+            text-decoration: underline;
+        }
+        .content { margin-top: 30px; font-size: 12pt; }
+        .row-info { margin-bottom: 20px; display: flex; align-items: baseline; }
+        .label { font-weight: bold; min-width: 180px; display: inline-block; }
+        
+        .signature { 
+            margin-top: 60px; 
+            display: flex; 
+            justify-content: space-between; 
+            text-align: center; 
+            page-break-inside: avoid;
+        }
+        
+        /* Nút in sẽ ẩn đi khi in ra giấy */
+        @media print {
+            .no-print { display: none; }
+            body { padding: 20px; }
+        }
+        .btn-print {
+            padding: 10px 20px; background: #2c3e50; color: white; 
+            border: none; cursor: pointer; border-radius: 5px; font-size: 16px;
+            margin-bottom: 20px; margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div style="text-align: right;" class="no-print">
+        <button onclick="window.history.back()" class="btn-print" style="background: #95a5a6;">
+            <i class="fas fa-arrow-left"></i> 戻る
+        </button>
+        <button onclick="window.print()" class="btn-print">
+            🖨️ 印刷する
+        </button>
+    </div>
+
+    <div class="header">
+        <h3>管理組合 御中</h3>
+        <h4>(To: Management Association)</h4>
+    </div>
+
+    <div class="title">
+        {% if item.trangthai == 'Tạm trú' %}一時滞在{% else %}一時不在{% endif %}届出書
+    </div>
+
+    <div class="content">
+        <div class="row-info">
+            <span class="label">宛先:</span> 
+            <span>マンション管理委員会 / 警察署長 殿</span>
+        </div>
+        <div class="row-info">
+            <span class="label">氏名:</span> 
+            <span>{{ item.nhankhau.hoten }}</span>
+        </div>
+        <div class="row-info">
+            <span class="label">生年月日:</span> 
+            <span>{{ item.nhankhau.ngaysinh|date:"Y年 m月 d日" }}</span>
+        </div>
+        <div class="row-info">
+            <span class="label">身分証番号:</span> 
+            <span>{{ item.nhankhau.cccd }}</span>
+        </div>
+        <div class="row-info">
+            <span class="label">発行情報:</span> 
+            <span>発行日: ........................ / 発行場所: ........................</span>
+        </div>
+        <div class="row-info">
+            <span class="label">申請区分:</span> 
+            <span>
+                {% if item.trangthai == 'tam tru' %}
+                    一時滞在登録
+                {% else %}
+                    一時不在届
+                {% endif %}
+            </span>
+        </div>
+        <div class="row-info">
+            <span class="label">
+                {% if item.trangthai == 'tam tru' %}滞在先住所{% else %}転出先住所{% endif %}:
+            </span> 
+            <span>{{ item.diachitamtrutamvang }}</span>
+        </div>
+        <div class="row-info">
+            <span class="label">開始日:</span> 
+            <span>{{ item.thoigian|date:"Y年 m月 d日" }}</span>
+        </div>
+        <div class="row-info">
+            <span class="label">理由・備考:</span> 
+            <span>{{ item.noidungdenghi }}</span>
+        </div>

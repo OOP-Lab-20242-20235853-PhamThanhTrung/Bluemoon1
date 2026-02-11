@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block create_nhankhau %}
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">居住者の新規登録</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-muted">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'nhankhau' %}" class="text-muted">居住者管理</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">新規登録</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" action="{% url 'create_nhankhau' %}">
+                            {% csrf_token %}
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="ho_ten" class="form-label">氏名</label>
+                                            <input type="text" id="hoten" name="hoten" class="form-control" placeholder="氏名を入力" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="ngay_sinh" class="form-label">生年月日</label>
+                                            <input type="date" id="ngaysinh" name="ngaysinh" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label for="gioi_tinh" class="form-label">性別</label>
+                                            <select id="gioitinh" name="gioitinh" class="form-control" required>
+                                                <option value="">性別を選択</option>
+                                                <option value="Nam">男性</option>
+                                                <option value="Nữ">女性</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label for="dan_toc" class="form-label">民族</label>
+                                            <input type="text" id="dantoc" name="dantoc" class="form-control" placeholder="例: Kinh, Tay" >
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label for="ton_giao" class="form-label">宗教</label>
+                                            <input type="text" id="tongiao" name="tongiao" class="form-control" placeholder="例: 無宗教、仏教">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label for="so_cmnd" class="form-label">身分証番号 (CCCD/CMND)</label>
+                                            <input type="text" id="cccd" name="cccd" class="form-control" placeholder="身分証番号を入力" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label for="ngay_cap" class="form-label">発行日</label>
+                                            <input type="date" id="ngaycap" name="ngaycap" class="form-control" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label for="noi_cap" class="form-label">発行場所</label>
+                                            <input type="text" id="noicap" name="noicap" class="form-control" placeholder="例: ハノイ公安" required>
+                                        </div>
+                                    </div>
+                                </div>
+            
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="nghe_nghiep" class="form-label">職業</label>
+                                            <input type="text" id="nghenghiep" name="nghenghiep" class="form-control" placeholder="職業を入力">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label for="ghi_chu" class="form-label">備考</label>
+                                            <input type="text" id="ghichu" name="ghichu" class="form-control" placeholder="備考を入力" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-info">登録</button>
+                                    <a href="{% url 'nhankhau' %}" class="btn btn-dark">キャンセル</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

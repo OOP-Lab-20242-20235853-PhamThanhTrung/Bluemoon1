@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block xem_nhankhau %}
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">Chi Tiết Nhân Khẩu</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-muted">Trang chủ</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'nhankhau' %}" class="text-muted">Nhân khẩu</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">Chi Tiết</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+            <div class="col-5 align-self-center d-flex justify-content-end">
+                <a href="{% url 'nhankhau' %}" class="btn btn-secondary me-2">Quay Lại</a>
+                <a href="{% url 'update_nhankhau' nhankhau.id %}" class="btn btn-warning me-2">Cập Nhật</a> 
+                
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Thông Tin Cá Nhân</h5>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p><strong>Họ và Tên:</strong> {{ nhankhau.hoten }}</p>
+                                <p><strong>Ngày Sinh:</strong> {{ nhankhau.ngaysinh|date:"d/m/Y" }}</p>
+                                <p><strong>Giới Tính:</strong> {{ nhankhau.gioitinh }}</p>
+                                <p><strong>Dân Tộc:</strong> {{ nhankhau.dantoc }}</p>
+                                <p><strong>Tôn Giáo:</strong> {{ nhankhau.tongiao|default:"Không" }}</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>Số CMND/CCCD:</strong> {{ nhankhau.cccd }}</p>
+                                <p><strong>Ngày Cấp:</strong> {{ nhankhau.ngaycap|date:"d/m/Y" }}</p>
+                                <p><strong>Nơi Cấp:</strong> {{ nhankhau.noicap }}</p>
+                                <p><strong>Nghề Nghiệp:</strong> {{ nhankhau.nghenghiep|default:"Không" }}</p>
+                                <p><strong>Ghi Chú:</strong> {{ nhankhau.ghichu|default:"Không" }}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+                                   

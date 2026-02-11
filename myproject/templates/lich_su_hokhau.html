@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block lich_su_hokhau %}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <a href="{% url 'xem_hokhau' hokhau.id %}" class="btn btn-dark btn-rounded px-4">
+                <i class="fas fa-arrow-left"></i> 世帯詳細に戻る
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">変更履歴: 世帯番号 {{ hokhau.sohokhau }}</h4>
+                        <p class="card-subtitle mb-4">世帯主: <strong>{{ hokhau.chuhokhau.hoten }}</strong></p>
+
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead class="bg-light text-dark">
+                                    <tr>
+                                        <th>日時</th>
+                                        <th>対象者</th>
+                                        <th>変更区分</th>
+                                        <th>詳細・備考</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for history in history_list %}
+                                    <tr>
+                                        <td>{{ history.ngaythaydoi|date:"Y/m/d H:i" }}</td>
+                                        <td>
+                                            <strong>{{ history.nhankhau.hoten }}</strong><br>
+                                            <small class="text-muted">身分証番号: {{ history.nhankhau.cccd }}</small>
+                                        </td>
+                                        <td>
+                                            {% if history.loaithaydoi == 1 %}
+                                                <span class="text-success">
+                                                    <i class="fas fa-user-plus"></i> 転入
+                                                </span>
+                                            {% elif history.loaithaydoi == 2 %}
+                                                <span class="text-danger">
+                                                    <i class="fas fa-user-minus"></i> 転出
+                                                </span>
+                                            {% endif %}
+                                        </td>
+                                        <td>
+                                            {% if history.loaithaydoi == 1 %}
+                                                新規入居 / 転入登録
+                                            {% else %}
+                                                転出 / 除籍処理
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="4" class="text-center py-4 text-muted">
+                                            この世帯の変更履歴はありません。
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock lich_su_hokhau %}

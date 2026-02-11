@@ -1,0 +1,167 @@
+{% load static %}
+<html dir="ltr" lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets/images/favicon.png' %}">
+    <title>BlueMoon</title>
+    <!-- Google Font for better Vietnamese support -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>body { font-family: 'Inter', sans-serif !important; }</style>
+    <!-- Custom CSS -->
+    <link href="{% static 'assets/extra-libs/c3/c3.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/libs/chartist/dist/chartist.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/extra-libs/jvector/jquery-jvectormap-2.0.2.css' %}" rel="stylesheet" />
+    <!-- Custom CSS -->
+    <link href="{% static 'dist/css/style.min.css' %}" rel="stylesheet">
+
+
+    
+</head>
+
+<body>
+    <div class="preloader">
+        <div class="lds-ripple">
+            <div class="lds-pos"></div>
+            <div class="lds-pos"></div>
+        </div>
+    </div>
+    <div id="main-wrapper" data-theme="light" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+        data-sidebar-position="fixed" data-header-position="fixed" data-boxed-layout="full">
+        <header class="topbar" data-navbarbg="skin6">
+            <nav class="navbar top-navbar navbar-expand-lg">
+                <div class="navbar-header" data-logobg="skin6">
+                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+                    <a class="nav-toggler waves-effect waves-light d-block d-lg-none" href="javascript:void(0)"><i
+                            class="ti-menu ti-close"></i></a>
+                    <div class="navbar-brand">
+                        <a href="{% url 'home' %}" class="d-flex align-items-center gap-3 text-decoration-none">
+        
+                            <!-- Moon icon logo -->
+                            <span class="logo-icon d-flex align-items-center justify-content-center">
+                                <i data-feather="moon" class="text-primary"></i>
+                            </span>
+
+                            <!-- Logo text -->
+                            <span class="logo-text fw-bold text-primary">
+                                BlueMoon
+                            </span>
+
+                        </a>
+                    </div>
+
+                    <a class="topbartoggler d-block d-lg-none waves-effect waves-light" href="javascript:void(0)"
+                        data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i
+                            class="ti-more"></i></a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav float-end ms-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">
+                                <img src="{% static 'assets/images/users/profile-pic.jpg' %}" alt="user" class="rounded-circle"
+                                    width="40">
+                                <span class="ms-2 d-none d-lg-inline-block"><span>こんにちは,</span> <span
+                                        class="text-dark">{{ request.user.username }}さん</span></span> 
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <aside class="left-sidebar" data-sidebarbg="skin6">
+            <!-- Sidebar scroll-->
+            <div class="scroll-sidebar" data-sidebarbg="skin6">
+                <!-- Sidebar navigation-->
+                <nav class="sidebar-nav">
+                    <ul id="sidebarnav">
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{% url 'home' %}"
+                                aria-expanded="false"><i data-feather="home" class="feather-icon"></i><span
+                                    class="hide-menu">ダッシュボード</span></a></li>
+                        
+                        <li class="list-divider"></li>
+                        <li class="nav-small-cap"><span class="hide-menu">メニュー</span></li>
+                        {% if request.user.vaitro == 'Tổ trưởng' %}
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{% url 'nhankhau' %}"
+                                aria-expanded="false"><i data-feather="users" class="feather-icon"></i><span
+                                    class="hide-menu">居住者管理
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"> 
+                            <a class="sidebar-link" href="{% url 'danh_sach_tttv' %}" aria-expanded="false">
+                                <i data-feather="user-check" class="feather-icon"></i>
+                                <span class="hide-menu">一時滞在・不在</span>
+                            </a>
+                        </li>
+                       <li class="sidebar-item"> 
+                            <a class="sidebar-link" href="{% url 'hokhau' %}" aria-expanded="false">
+                                <i data-feather="home" class="feather-icon"></i>
+                                <span class="hide-menu">世帯管理</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if request.user.vaitro == 'Kế toán' %}
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{% url 'khoanthu' %}"
+                                aria-expanded="false"><i data-feather="dollar-sign" class="feather-icon"></i><span
+                                    class="hide-menu">収入内訳
+                                </span></a>
+                        </li>
+                        <li class="sidebar-item"> <a class="sidebar-link" href="{% url 'hoadon' %}"
+                                aria-expanded="false"><i data-feather="file-text" class="feather-icon"></i><span
+                                    class="hide-menu">請求書
+                                </span></a>
+                        {% endif %}
+                        <li class="list-divider"></li>
+                        <li class="sidebar-item"> <a class="sidebar-link sidebar-link" href="{% url 'logout' %}"
+                                aria-expanded="false"><i data-feather="log-out" class="feather-icon"></i><span
+                                    class="hide-menu">ログアウト</span></a></li>
+                </nav>
+                <!-- End Sidebar navigation -->
+            </div>
+            <!-- End Sidebar scroll-->
+        </aside>
+
+        {% block home-content %}{% endblock home-content %}
+        {% block nhankhau-content %}{% endblock nhankhau-content %}
+        {% block create_nhankhau %}{% endblock create_nhankhau %}
+        {% block xem_nhankhau %}{% endblock xem_nhankhau %}
+        {% block update_nhankhau %}{% endblock update_nhankhau %}
+        {% block khoanthu-content %}{% endblock khoanthu-content %}
+        {% block hoadon-content %}{% endblock hoadon-content %}
+        {% block hokhau-content %}{% endblock hokhau-content %}
+        {% block create_hokhau %}{% endblock create_hokhau %}
+        {% block xem_hokhau %}{% endblock xem_hokhau %}
+        {% block update_hokhau %}{% endblock update_hokhau %}
+        {% block lich_su_hokhau %}{% endblock lich_su_hokhau %}
+    </div>
+
+    <script src="{% static 'assets/libs/jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+    <!-- apps -->
+    <!-- apps -->
+    <script src="{% static 'dist/js/app-style-switcher.js' %}"></script>
+    <script src="{% static 'dist/js/feather.min.js' %}"></script>
+    <script src="{% static 'assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js' %}"></script>
+    <script src="{% static 'dist/js/sidebarmenu.js' %}"></script>
+    <!--Custom JavaScript -->
+    <script src="{% static 'dist/js/custom.min.js' %}"></script>
+    <!--This page JavaScript -->
+    <script src="{% static 'assets/extra-libs/c3/d3.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/c3/c3.min.js' %}"></script>
+    <script src="{% static 'assets/libs/chartist/dist/chartist.min.js' %}"></script>
+    <script src="{% static 'assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/jvector/jquery-jvectormap-2.0.2.min.js' %}"></script>
+    <script src="{% static 'assets/extra-libs/jvector/jquery-jvectormap-world-mill-en.js' %}"></script>
+    <script src="{% static 'dist/js/pages/dashboards/dashboard1.min.js' %}"></script>
+    
+
+</body>
+
+</html>

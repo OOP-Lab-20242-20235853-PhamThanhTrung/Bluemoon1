@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block hoadon-content %}
+<div class="page-wrapper">
+    <div class="page-breadcrumb">
+        <div class="row">
+            <div class="col-7 align-self-center">
+                <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">請求書作成</h4>
+                <div class="d-flex align-items-center">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb m-0 p-0">
+                            <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-muted">ホーム</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'hoadon' %}" class="text-muted">請求書管理</a></li>
+                            <li class="breadcrumb-item text-muted active" aria-current="page">新規作成</li>
+                        </ol>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <form method="post" action="{% url 'create_hoadon' %}">
+                            {% csrf_token %}
+                            <div class="form-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">世帯</label>
+                                            <select name="hokhau" class="form-control" required>
+                                                <option value="">世帯を選択</option>
+                                                {% for hk in hokhaus %}
+                                                    <option value="{{ hk.id }}">{{ hk.sohokhau }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">費目</label>
+                                            <select name="khoanthu" class="form-control" required>
+                                                <option value="">費目を選択</option>
+                                                {% for kt in khoanthus %}
+                                                    <option value="{{ kt.id }}">{{ kt.tenkhoanthu }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">納付者</label>
+                                            <input type="text" name="nguoinoptien" class="form-control" placeholder="納付者名を入力" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">金額 (VND)</label>
+                                            <input type="number" step="0.01" min="0" name="sotien" class="form-control" placeholder="金額を入力" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="form-group mb-3">
+                                            <label class="form-label">納付日</label>
+                                            <input type="date" name="ngaynop" class="form-control" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-actions">
+                                <div class="text-end">
+                                    <button type="submit" class="btn btn-info">登録</button>
+                                    <a href="{% url 'hoadon' %}" class="btn btn-dark">キャンセル</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock hoadon-content %}

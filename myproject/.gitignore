@@ -1,0 +1,43 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Database
+# Vì bạn dùng PostgreSQL, nên ignore các file SQLite local nếu có
+db.sqlite3
+db.sqlite3-journal
+
+# Môi trường ảo (Virtual Environments)
+env/
+venv/
+ENV/
+.env/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Bảo mật (Cực kỳ quan trọng)
+.env
+local_settings.py
+
+# Media và Static
+# Ignore các file do người dùng upload lên
+/media/
+# Nếu bạn dùng collectstatic, thư mục static tập trung cũng nên ignore
+/staticfiles/
+
+# IDE - Editor (VS Code, Cursor, PyCharm)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Hệ điều hành
+.DS_Store
+Thumbs.db
+
+# Log files
+*.log
+
+*.sqlite3
+db.sqlite3

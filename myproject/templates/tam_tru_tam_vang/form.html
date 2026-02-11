@@ -1,0 +1,73 @@
+{% extends 'tamtrutamvang.html' %}
+
+{% block content %}
+<div class="container-fluid p-0">
+
+    <div class="mb-3">
+        <h1 class="h3 d-inline align-middle">{{ title }}</h1>
+        <a href="{% url 'danh_sach_tttv' %}" class="float-end btn btn-outline-secondary">戻る</a>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-xl-8">
+            <div class="card shadow-sm border-0">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">届出情報</h5>
+                </div>
+                <div class="card-body">
+                    <form method="post">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label class="form-label">居住者を選択</label>
+                            {{ form.nhankhau }}
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">届出種別</label>
+                                {{ form.trangthai }}
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">開始日</label>
+                                {{ form.thoigian }}
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">滞在先・転出先住所</label>
+                            {{ form.diachitamtrutamvang }}
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">申請内容・理由</label>
+                            {{ form.noidungdenghi }}
+                        </div>
+
+                        <div class="mt-4">
+                            <button type="submit" class="btn btn-primary">登録</button>
+                            <button type="reset" class="btn btn-secondary">リセット</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-12 col-xl-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-header">
+                    <h5 class="card-title mb-0">注意事項</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="list-unstyled mb-0">
+                        <li class="mb-2"><span class="text-primary">●</span> <strong>一時滞在:</strong> 外部から当マンションに居住する場合。</li>
+                        <li class="mb-2"><span class="text-warning">●</span> <strong>一時不在:</strong> 居住者が長期間不在にする場合。</li>
+                        <li><span class="text-danger">●</span> 入力前に身分証番号(CCCD)をよく確認してください。</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

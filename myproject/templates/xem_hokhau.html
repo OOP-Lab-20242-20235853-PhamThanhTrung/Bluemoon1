@@ -1,0 +1,85 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block xem_hokhau %}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <div class="mb-3">
+            <a href="{% url 'hokhau' %}" class="btn btn-dark btn-rounded px-4">
+                <i class="fas fa-arrow-left"></i> 一覧に戻る
+            </a>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card border-primary">
+                    
+                   <div class="card-header bg-primary text-white d-flex align-items-center justify-content-between">
+                        <h4 class="mb-0 mr-3">世帯情報</h4>
+                        
+                        <a href="{% url 'lich_su_hokhau' hokhau.id %}" class="btn btn-sm btn-light shadow-sm btn-rounded">
+                            <i class="fas fa-history mr-1"></i> 変更履歴を見る
+                        </a>
+                    </div>
+                    <div class="card-body">
+                        <p><strong>世帯番号:</strong> <span class="text-danger">{{ hokhau.sohokhau }}</span></p>
+                        <hr>
+                        <p><strong>世帯主:</strong> {{ hokhau.chuhokhau.hoten }}</p>
+                        <p><strong>住所:</strong> {{ hokhau.sonha }}, {{ hokhau.duong }}, {{ hokhau.phuong }}, {{ hokhau.quan }}</p>
+                        <p><strong>作成日:</strong> {{ hokhau.ngaylamhokhau|date:"Y/m/d" }}</p>
+                        <p><strong>構成員数:</strong> {{ hokhau.sothanhvien }}名</p>
+                        <div class="">
+                            <label class="font-weight">備考 (状態):</label>
+                            <div class="p-3 rounded border {% if hokhau.ghichu %}bg-light border-warning{% else %}bg-white{% endif %}">
+                                {% if hokhau.ghichu %}
+                                    <i class="fas fa-sticky-note text-warning mr-2"></i>
+                                    <span class="text-dark">{{ hokhau.ghichu|linebreaksbr }}</span>
+                                {% else %}
+                                    <span class="text-muted font-italic">備考はありません。</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">世帯構成員一覧</h4>
+                        <div class="table-responsive">
+                            <table class="table table-hover table-bordered">
+                                <thead class="thead-light">
+                                    <tr>
+                                        <th>氏名</th>
+                                        <th>身分証番号</th>
+                                        <th>世帯主との続柄</th>
+                                        <th>登録日</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table-info">
+                                        <td><strong>{{ hokhau.chuhokhau.hoten }}</strong></td>
+                                        <td>{{ hokhau.chuhokhau.cccd }}</td>
+                                        <td><span class="">世帯主</span></td>
+                                        <td>{{ hokhau.ngaylamhokhau|date:"Y/m/d" }}</td>
+                                    </tr>
+                                    
+                                    {% for tv in danh_sach_thanh_vien %}
+                                    <tr>
+                                        <td>{{ tv.nhankhau.hoten }}</td>
+                                        <td>{{ tv.nhankhau.cccd }}</td>
+                                        <td>{{ tv.quanhevoichuho }}</td>
+                                        <td>{{ tv.ngaythemnhankhau|date:"Y/m/d" }}</td>
+                                    </tr>
+                                    {% empty %}
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock xem_hokhau %}

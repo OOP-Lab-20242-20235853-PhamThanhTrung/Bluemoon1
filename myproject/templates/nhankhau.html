@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block nhankhau-content %}
+        <div class="page-wrapper">
+            <div class="page-breadcrumb">
+                <div class="row">
+                    <div class="col-7 align-self-center">
+                        <h4 class="page-title text-truncate text-dark font-weight-medium mb-1">居住者管理</h4>
+                        <div class="d-flex align-items-center">
+                            <nav aria-label="breadcrumb">
+                                <ol class="breadcrumb m-0 p-0">
+                                    <li class="breadcrumb-item"><a href="{% url 'home' %}" class="text-muted">ホーム</a></li>
+                                    <li class="breadcrumb-item text-muted active" aria-current="page">居住者一覧</li>
+                                </ol>
+                            </nav>
+                        </div>
+                    </div>
+                    
+                    <div class="col-5 align-self-center d-flex gap-2 justify-content-start ">
+                        <form class="d-flex align-items-center">
+                            <div class="customize-input  " >
+                                <input class="form-control custom-shadow custom-radius border-0 bg-white"
+                                    type="search" style="width: 260px" placeholder="氏名または身分証番号で検索" aria-label="Search" name="q" value="{{ query }}">
+                                
+                            </div>
+                        </form>
+                        <div>
+                            <button type="button"class="btn waves-effect waves-light btn-rounded btn-outline-success " onclick="location.href='{% url 'create_nhankhau' %}'">新規登録</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                
+                                <div class="table-responsive">
+                                    <table id="zero_config" class="table table-striped table-bordered no-wrap">
+                                            <thead>
+                                                <tr>
+                                                    <th>No.</th>
+                                                    <th>氏名</th>
+                                                    <th>生年月日</th>
+                                                    <th>性別</th>
+                                                    <th>身分証番号</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                {% for nhankhau in nhankhaus %}
+                                                <tr>
+                                                    <td>{{ nhankhau.id }}</td>
+                                                    <td><a href="javascript:void(0)" class="font-weight-medium link">{{ nhankhau.hoten }}</a></td>
+                                                    <td>{{ nhankhau.ngaysinh|date:"Y/m/d" }}</td>
+                                                    <td>
+                                                        {% if nhankhau.gioitinh == 'Nam' %}男性{% elif nhankhau.gioitinh == 'Nữ' %}女性{% else %}{{ nhankhau.gioitinh }}{% endif %}
+                                                    </td>
+                                                    <td>{{ nhankhau.cccd }}</td>
+                                                    <td>
+                                                        <div class="d-flex gap-1">
+                                                            <a href="{% url 'xem_nhankhau' nhankhau.id %}" class="btn waves-effect waves-light btn-rounded btn-outline-primary btn-sm flex-fill">詳細</a>
+                                                            <a href="{% url 'update_nhankhau' nhankhau.id %}" class="btn waves-effect waves-light btn-rounded btn-outline-warning btn-sm flex-fill">編集</a>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                {% empty %}
+                                                <tr>
+                                                    <td colspan="6" class="text-center">居住者データがありません。</td>
+                                                </tr>
+                                                {% endfor %}
+                                            </tbody>
+                                    </table>
+                                    <ul class="pagination float-end">
+                                        <li class="page-item disabled">
+                                            <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                        </li>
+                                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">2 <span class="sr-only">(current)</span></a>
+                                        </li>
+                                        <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                        <li class="page-item">
+                                            <a class="page-link" href="#">Next</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock nhankhau-content %}
