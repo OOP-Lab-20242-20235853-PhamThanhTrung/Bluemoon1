@@ -331,7 +331,22 @@ VALUES
 ((SELECT id FROM hokhau_hokhau LIMIT 1 OFFSET 2), 10, 'Takahashi Emi', 10000, '2024-06-17'),
 ((SELECT id FROM hokhau_hokhau LIMIT 1 OFFSET 38), 10, 'Hoang Quoc Bao', 2000, '2024-06-18'); 
 
--- CẬP NHẬT LẠI ID SEQUENCE ĐỂ KHÔNG BỊ LỖI KHI THÊM MỚI SAU NÀY
--- (Chạy riêng từng dòng nếu cần thiết, tùy phiên bản Postgres)
--- SELECT setval('khoanthu_khoanthu_id_seq', (SELECT MAX(id) FROM khoanthu_khoanthu));
--- SELECT setval('noptien_noptien_id_seq', (SELECT MAX(id) FROM noptien_noptien));
+-- 1. Cập nhật bộ đếm cho bảng NHÂN KHẨU
+SELECT setval('nhankhau_nhankhau_id_seq', (SELECT MAX(id) FROM nhankhau_nhankhau));
+
+-- 2. Cập nhật bộ đếm cho bảng HỘ KHẨU
+SELECT setval('hokhau_hokhau_id_seq', (SELECT MAX(id) FROM hokhau_hokhau));
+
+-- 3. Cập nhật bộ đếm cho bảng TẠM TRÚ TẠM VẮNG
+SELECT setval('tamtrutamvang_tamtrutamvang_id_seq', (SELECT MAX(id) FROM tamtrutamvang_tamtrutamvang));
+
+-- 4. Cập nhật bộ đếm cho bảng KHOẢN THU
+SELECT setval('khoanthu_khoanthu_id_seq', (SELECT MAX(id) FROM khoanthu_khoanthu));
+
+-- 5. Cập nhật bộ đếm cho bảng NỘP TIỀN
+SELECT setval('noptien_noptien_id_seq', (SELECT MAX(id) FROM noptien_noptien));
+
+-- 6. Cập nhật bộ đếm cho bảng THÀNH VIÊN HỘ (Quan trọng)
+SELECT setval('hokhau_thanhvienhokhau_id_seq', (SELECT MAX(id) FROM hokhau_thanhvienhokhau));
+
+SELECT setval('hokhau_lichsuthaydoihokhau_id_seq', (SELECT MAX(id) FROM hokhau_lichsuthaydoihokhau));
